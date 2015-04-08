@@ -7,16 +7,15 @@ public class CoinAni : MonoBehaviour {
 	public const int IDLE01 = 1;
 	public const int IDLE02 = 2;
 	public const int IDLE03 = 3;
-	
+
 	public GameObject Face;
 	Animator anim;
 	
 	// Use this for initialization
 	void Start () {
 		anim = Face.gameObject.GetComponent<Animator>();
-
-		int rFaceNum = Random.Range(1,3);
-		ChangeFace(rFaceNum);
+		int FaceNum = gameObject.GetComponent<CoinController>().CoinFaceNo;
+		ChangeFace(FaceNum);
 	}
 
 	void ChangeFace(int faceNum){
@@ -28,25 +27,12 @@ public class CoinAni : MonoBehaviour {
 	}
 	
 	IEnumerator WaitIdleAni(int aniNum){
-		float waitTime = 10.0f; 
-		if (aniNum <= 3){
-			if (aniNum > 0)
-			{
-				yield return new WaitForSeconds (waitTime);
-				print("ifAniNum >= 0 :::::::::::" + aniNum);
-				anim.SetInteger("aniNumber", aniNum);
-				ChangeAni(0);
-			}
-			else {
-				yield return new WaitForSeconds (waitTime);
-				print ("ifAniNum == 0 !!!!!!!!!!" + aniNum);
-				anim.SetInteger("aniNumber", aniNum);
-				
-				int randAniNum = Random.Range(1,5);
-				aniNum = randAniNum;
-				
-				ChangeAni(aniNum);	
-			}
-		}
+		float waitTime = 0f; 
+
+		yield return new WaitForSeconds (waitTime);
+		anim.SetInteger("aniNumber", aniNum);
+	}
+	public void CoinAniEnd(){
+		anim.SetInteger("aniNumber", 2);
 	}
 }

@@ -23,6 +23,7 @@ public class CoinConstructor : MonoBehaviour {
 	public GameObject coinViewer;
 	private int prevRandCoinNo = 1;
 
+
 	void Update(){
 		if (randCoinNo == 1)
 			coin = coin_01;
@@ -51,6 +52,8 @@ public class CoinConstructor : MonoBehaviour {
 
 					Child.GetComponent<CoinController>();
 					Child.gameObject.SendMessage("StateCoercion", "MOVING");
+
+					Child.name = coinCount + "_Coin";
 
 					randCoinNo = Random.Range(1,6);
 

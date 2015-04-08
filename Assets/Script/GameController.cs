@@ -54,6 +54,9 @@ public class GameController : MonoBehaviour {
 	private bool bPlayingOn = false;
 	private bool bEndGameOn = false;
 
+	public GameObject parentCoin;
+	public int coinRigidDelCount;
+
 	// Use this for initialization
 	void Start () {
 		state = GameState.LOBBY;
@@ -300,5 +303,21 @@ public class GameController : MonoBehaviour {
 
 	public void ShowAchievements(){
 		Social.ShowAchievementsUI();
+	}
+
+	public void CoinRigidDel(){
+		int rigidDel = coinCounter - coinRigidDelCount;
+
+		if (coinCounter >= coinRigidDelCount){
+			if (rigidDel >= 1){
+				Transform _coinRigidDel;
+
+				_coinRigidDel = parentCoin.transform.FindChild(rigidDel + "_Coin");
+
+				Rigidbody tmpRigid = _coinRigidDel.GetComponent<Rigidbody>();
+				Destroy(tmpRigid);
+			}
+		}
+	
 	}
 }

@@ -9,11 +9,11 @@ public class BGController : MonoBehaviour {
 	public float bgScrollY = 0.5f;
 
 	private float bg01BaseX;
-	private float bg01BaseY = 80;
+	private float bg01BaseY = 90f;
 	private float bg01BaseZ;
 
 	private float bg02BaseX;
-	private float bg02BaseY = 280;
+	private float bg02BaseY = 290f;
 	private float bg02BaseZ;
 
 	private GameObject tmpCamera;

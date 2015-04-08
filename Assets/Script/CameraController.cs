@@ -24,13 +24,12 @@ public class CameraController : MonoBehaviour {
 
 		if (coinCounter < tmpObject.GetComponent<CoinConstructor>().coinCount){
 			coinCounter = tmpObject.GetComponent<CoinConstructor>().coinCount;
-
-			changeCameraHeight = coinCounter * changeValue + baseCameraHeight;
+		
+			changeCameraHeight = (coinCounter - 1) * changeValue + baseCameraHeight;
 
 			transform.position = new Vector3(0,changeCameraHeight,baseCameraDepth);
+
 			tmpBGScroll.gameObject.SendMessage("BGScroll");
-			//print (coinCounter);
-			//print (changeCameraHeight);
 		}
 	}
 

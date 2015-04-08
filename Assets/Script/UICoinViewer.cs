@@ -48,8 +48,9 @@ public class UICoinViewer : MonoBehaviour {
 
 		Child.GetComponent<CoinAni>();
 
-		int rFaceAniNum = Random.Range(0,4);
-		Child.gameObject.SendMessage("ChangeAni", rFaceAniNum);
+		//int rFaceAniNum = Random.Range(0,4);	//
+		int rFaceAniNum = 0;	// 
+		Child.gameObject.SendMessage("ChangeAni", rFaceAniNum);	//
 	}
 
 	public void CoinViewerDelete(int i){
