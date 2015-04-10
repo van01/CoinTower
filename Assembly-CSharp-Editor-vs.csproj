@@ -46,11 +46,20 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Extensions\GooglePlayCommon\Editor\SocialPlatfromInit.cs" />
+     <Compile Include="Assets\Extensions\GooglePlayCommon\Editor\SocialPlatfromSettingsEditor.cs" />
+     <Compile Include="Assets\Extensions\IOSDeploy\Scripts\Editor\IOSDeployPostProcess.cs" />
+     <Compile Include="Assets\Extensions\IOSDeploy\Scripts\Editor\ISDSettingsEditor.cs" />
+     <Compile Include="Assets\Extensions\MobileSocialPlugin\Scripts\Editor\MSPPostProcess.cs" />
+     <Compile Include="Assets\Extensions\MobileSocialPlugin\Scripts\Editor\SocialPlatfromMenu.cs" />
+     <Compile Include="Assets\Extensions\StansAssetsCommon\Editor\PluginsInstalationUtil.cs" />
      <Compile Include="Assets\Facebook\Editor\FacebookPostprocess.cs" />
      <Compile Include="Assets\Facebook\Editor\FacebookSettingsEditor.cs" />
      <Compile Include="Assets\Facebook\Editor\android\FacebookAndroidUtil.cs" />
      <Compile Include="Assets\Facebook\Editor\android\ManifestMod.cs" />
+     <Compile Include="Assets\Facebook\Editor\iOS\FBPListParser.cs" />
      <Compile Include="Assets\Facebook\Editor\iOS\FixupFiles.cs" />
+     <Compile Include="Assets\Facebook\Editor\iOS\PListDict.cs" />
      <Compile Include="Assets\Facebook\Editor\iOS\PlistMod.cs" />
      <Compile Include="Assets\Facebook\Editor\iOS\third_party\XCodeEditor-for-Unity\PBXBuildFile.cs" />
      <Compile Include="Assets\Facebook\Editor\iOS\third_party\XCodeEditor-for-Unity\PBXBuildPhase.cs" />
@@ -87,6 +96,7 @@
      <None Include="Assets\Plugins\Android\facebook\res\drawable\com_facebook_picker_list_selector_background_transition.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-mn-rMN\common_strings.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_search_bar_layout.xml" />
+     <None Include="Assets\Plugins\StansAssets\Android\androidnative.txt" />
      <None Include="Assets\JMO Assets\MatCap Shaders\Shaders\MatCap_TextureAdd_Bumped.shader" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-hi\common_strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-fa\common_strings.xml" />
@@ -122,10 +132,12 @@
      <None Include="Assets\Plugins\Android\facebook\res\drawable\com_facebook_button_blue.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values\common_attrs.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_picker_title_bar.xml" />
+     <None Include="Assets\Plugins\StansAssets\Android\AndroidManifest.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-ka-rGE\common_strings.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_picker_activity_circle_row.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_placepickerfragment.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values\version.xml" />
+     <None Include="Assets\Plugins\StansAssets\Android\social\twitter4j-core-3.0.5.txt" />
      <None Include="Assets\Plugins\Android\facebook\res\drawable\com_facebook_usersettingsfragment_background_gradient.xml" />
      <None Include="Assets\GooglePlayGames\Editor\template-AndroidManifest.txt" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-pt-rPT\common_strings.xml" />
@@ -178,6 +190,7 @@
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-ar\common_strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-in\common_strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values\admob_strings.xml" />
+     <None Include="Assets\Plugins\StansAssets\Android\social\an_social.txt" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-tl\common_strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-el\common_strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-ms-rMY\common_strings.xml" />
@@ -191,6 +204,7 @@
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-hu\common_strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\drawable\common_signin_btn_icon_light.xml" />
      <None Include="Assets\JMO Assets\MatCap Shaders\Shaders\MatCap_Plain.shader" />
+     <None Include="Assets\Plugins\StansAssets\Android\libs\android-support-v4.txt" />
      <None Include="Assets\Plugins\Android\facebook\res\values-es\strings.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\drawable\com_facebook_picker_top_button.xml" />
      <None Include="Assets\JMO Assets\MatCap Shaders\Shaders\MatCap_Plain_Additive.shader" />
@@ -201,6 +215,7 @@
      <None Include="Assets\JMO Assets\MatCap Shaders\Shaders\MatCap_TextureMult.shader" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-zh-rHK\common_strings.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\values\attrs.xml" />
+     <None Include="Assets\Plugins\StansAssets\Versions\MSP_VersionInfo.txt" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-hy-rAM\common_strings.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_picker_checkbox.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-en-rIN\common_strings.xml" />
@@ -211,15 +226,19 @@
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-ja\common_strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-af\common_strings.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\drawable\com_facebook_loginbutton_silver.xml" />
+     <None Include="Assets\Extensions\AndroidManifestManager\default.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-uz-rUZ\common_strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-sk\common_strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-sw\common_strings.xml" />
      <None Include="Assets\JMO Assets\MatCap Shaders\Shaders\MatCap_TextureAdd.shader" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-ru\common_strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\color\wallet_secondary_text_holo_dark.xml" />
+     <None Include="Assets\Plugins\StansAssets\Android\res\xml\file_paths.xml" />
      <None Include="Assets\Plugins\Android\facebook\bin\proguard.txt" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-bn-rBD\common_strings.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\values-ldpi\dimens.xml" />
+     <None Include="Assets\Extensions\StansAssetsCommon\SA_FB_PlaceHolder.txt" />
+     <None Include="Assets\Plugins\Android\res\xml\file_paths.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-ky-rKG\common_strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-sv\common_strings.xml" />
      <None Include="Assets\Plugins\Android\facebook\AndroidManifest.xml" />
@@ -234,6 +253,9 @@
      <None Include="Assets\Plugins\Android\MainLibProj\AndroidManifest.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="IFacebook 1">
+ <HintPath>C:/Users/bAdaso/Documents/NotSlaves/CoinTower/Assets/Facebook/Scripts/IFacebook 1.dll</HintPath>
  </Reference>
  <Reference Include="IFacebook">
  <HintPath>C:/Users/bAdaso/Documents/NotSlaves/CoinTower/Assets/Facebook/Scripts/IFacebook.dll</HintPath>

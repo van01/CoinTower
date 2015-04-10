@@ -1,12 +1,14 @@
 fileFormatVersion: 2
 guid: 27ac2c5834dcf624a8a112b81726b345
-timeCreated: 1428495174
+timeCreated: 1428650102
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Common_0
     21300002: Common_1
     21300004: Common_3
+    21300006: Common_2
+    21300008: Common_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -55,32 +57,52 @@ TextureImporter:
     - name: Common_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 481
-        width: 30
-        height: 30
+        x: 0
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 10, y: 10, z: 10, w: 10}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: Common_1
       rect:
         serializedVersion: 2
-        x: 34
-        y: 448
+        x: 128
+        y: 384
         width: 128
-        height: 64
+        height: 128
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Common_3
       rect:
         serializedVersion: 2
-        x: 164
-        y: 448
-        width: 64
-        height: 64
+        x: 384
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

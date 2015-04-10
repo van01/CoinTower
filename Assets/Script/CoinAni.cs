@@ -19,7 +19,10 @@ public class CoinAni : MonoBehaviour {
 	}
 
 	void ChangeFace(int faceNum){
-		anim.SetInteger("faceNumber", faceNum);
+		if (faceNum > 0){
+			Face.SetActive(true);
+			anim.SetInteger("faceNumber", faceNum);
+		}
 	}
 	
 	public void ChangeAni(int aniNum){

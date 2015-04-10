@@ -57,6 +57,11 @@ public class GameController : MonoBehaviour {
 	public GameObject parentCoin;
 	public int coinRigidDelCount;
 
+	private int screenWidth = Screen.width;
+	private int screenHeight = Screen.height;
+
+	private Texture2D tex;
+
 	// Use this for initialization
 	void Start () {
 		state = GameState.LOBBY;
@@ -76,6 +81,8 @@ public class GameController : MonoBehaviour {
 		//구글 플레이 로그인
 		Social.localUser.Authenticate((bool success)=>{
 		});
+
+		tex = new Texture2D(screenWidth, screenHeight, TextureFormat.RGB24, false);
 
 	}
 	
@@ -105,7 +112,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider c)	{
-		if (c.transform.tag == "Coin"){
+		if (c.CompareTag("Coin")){
 			state = GameState.GAMEEND;
 		}
 	}
@@ -169,7 +176,9 @@ public class GameController : MonoBehaviour {
 
 	void EndGame(){
 		if (bEndGameOn == false){
+
 			if (bEndScoreSend == false){
+				//ShareImageCapture();
 				tmpHudController.gameObject.SendMessage("LastScore", coinCounter);
 				bestScore = tmpHudController.GetComponent<HUDController>().nHighScore;
 				tmpHudController.gameObject.SendMessage("BestScoreSend", bestScore);
@@ -201,6 +210,8 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void Retry(){
+		ShareImageDestroy();
+
 		bEndScoreSend = false;
 
 		state = GameState.RETRY;
@@ -319,5 +330,20 @@ public class GameController : MonoBehaviour {
 			}
 		}
 	
+	}
+
+	//void ShareImageCapture(){
+	//	tex.ReadPixels(new Rect(0, 0, screenWidth, screenHeight), 0, 0, false); 
+	//}
+
+	void ShareImageDestroy(){
+		DestroyImmediate(tex);
+	}
+
+
+	public void NativeShareWithImage() {
+		tex.ReadPixels(new Rect(0, 0, screenWidth, screenHeight), 0, 0, false); 
+		tex.Apply();
+		SPShareUtility.ShareMedia("Share Caption", "Share Message", tex);
 	}
 }

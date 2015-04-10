@@ -48,6 +48,7 @@ public class CoinConstructor : MonoBehaviour {
 					float mousePositiony = this.transform.position.y;
 
 					GameObject Child = Instantiate(coin,new Vector3(mousePositionx,mousePositiony,0),Quaternion.Euler(-90,0,0)) as GameObject;
+					//Child.GetComponent<Rigidbody>().AddForce(Vector3.down * 10000f);
 					Child.transform.parent = parentCoin.transform;
 
 					Child.GetComponent<CoinController>();
@@ -94,13 +95,14 @@ public class CoinConstructor : MonoBehaviour {
 		if (coinCount <= 10){
 			if (randWindOn == true){
 				randWind = Random.Range(4,8)-6;
+				//randWind = 0;
 				randWindOn = false;
 			}
 		}
 
-
 		if (randWindOn == true){
 			randWind = Random.Range(1,12)-6;
+			//randWind = 0;
 			randWindOn = false;
 		}
 	}
