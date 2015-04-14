@@ -21,7 +21,7 @@ using System.IO;
 
 namespace GooglePlayGames {
     public class GPGSAndroidSetupUI : EditorWindow {
-		string mAppId = "609007437501";
+        string mAppId = "";
 
         [MenuItem("Google Play Games/Android Setup...", false, 0)]
         public static void MenuItemGPGSAndroidSetup() {
