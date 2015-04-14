@@ -64,6 +64,9 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//플레이어 프리팹 초기화
+		//PlayerPrefs.DeleteAll();
+
 		state = GameState.LOBBY;
 
 		tmpCamera = GameObject.Find("Main Camera").GetComponent<CameraController>();
@@ -182,7 +185,7 @@ public class GameController : MonoBehaviour {
 				tmpHudController.gameObject.SendMessage("LastScore", coinCounter);
 				bestScore = tmpHudController.GetComponent<HUDController>().nHighScore;
 				tmpHudController.gameObject.SendMessage("BestScoreSend", bestScore);
-
+		
 				tmpCoinConstructor.gameObject.SendMessage("DeleteCoinViewer");
 
 				bEndScoreSend = true;
@@ -192,6 +195,8 @@ public class GameController : MonoBehaviour {
 			bPlayingHudRedraw = false;
 
 			EndPopup.SetActive(true);
+			tmpHudController.gameObject.SendMessage("EndGameMessage");
+
 			playing.SetActive(false);
 
 			bCHitZone.enabled = false;

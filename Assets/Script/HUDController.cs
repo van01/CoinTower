@@ -19,12 +19,16 @@ public class HUDController : MonoBehaviour {
 	private string sWind;
 	public int nHighScore;
 
+	public GameObject UIGameOver;
+	public GameObject UINEWRECORD;
+
+	private int nEndGameMessage = 0;
+
 	// Use this for initialization
 	void Start () {
 		//tmpGameController = GameObject.Find("GameController");
 		nHighScore = PlayerPrefs.GetInt("High Score");
-		UIHighScore.GetComponent<Text>().text = "high : " + nHighScore;
-
+		UIHighScore.GetComponent<Text>().text = nHighScore.ToString();
 	}
 	
 	// Update is called once per frame
@@ -54,7 +58,8 @@ public class HUDController : MonoBehaviour {
 		{
 			nHighScore = nScore;
 			PlayerPrefs.SetInt("High Score", nHighScore);
-			UIHighScore.GetComponent<Text>().text = "best : " + nHighScore;
+			UIHighScore.GetComponent<Text>().text = nHighScore.ToString();
+			nEndGameMessage = 1;
 		}
 	}
 
@@ -85,12 +90,24 @@ public class HUDController : MonoBehaviour {
 	}
 
 	public void LastScore(int nScore){
-		UIlastScore.GetComponent<Text>().text = "score : " + nScore;
+		UIlastScore.GetComponent<Text>().text = nScore.ToString();
 	}
 
 	public void BestScoreSend(int nScore){
 		Social.ReportScore(nScore, "CgkIvY2w3dwREAIQBg",(bool success) =>{
 			//handle success or failure
 		});
+	}
+
+	public void EndGameMessage(){
+		if (nEndGameMessage == 1){
+			UIGameOver.SetActive(false);
+			UINEWRECORD.SetActive(true);
+			nEndGameMessage = 0;
+		}
+		else{
+			UIGameOver.SetActive(true);
+			UINEWRECORD.SetActive(false);
+		}
 	}
 }

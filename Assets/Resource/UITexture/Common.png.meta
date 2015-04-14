@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 27ac2c5834dcf624a8a112b81726b345
-timeCreated: 1428650102
+timeCreated: 1429001430
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -9,6 +9,10 @@ TextureImporter:
     21300004: Common_3
     21300006: Common_2
     21300008: Common_4
+    21300010: Common_5
+    21300012: Common_6
+    21300014: Common_7
+    21300016: Common_8
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -58,51 +62,91 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 384
+        y: 383
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Common_1
       rect:
         serializedVersion: 2
         x: 128
-        y: 384
+        y: 383
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Common_2
       rect:
         serializedVersion: 2
         x: 256
-        y: 384
+        y: 383
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Common_3
       rect:
         serializedVersion: 2
         x: 384
-        y: 384
+        y: 383
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Common_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
+        y: 255
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common_5
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 353
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 10, y: 10, z: 10, w: 10}
+    - name: Common_6
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 353
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 10, y: 10, z: 10, w: 10}
+    - name: Common_7
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 321
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 15, z: 0, w: 31}
+    - name: Common_8
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 369
+        width: 125
+        height: 7
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

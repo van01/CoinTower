@@ -10,11 +10,13 @@ public class CoinAni : MonoBehaviour {
 
 	public GameObject Face;
 	Animator anim;
+
+	private int FaceNum;
 	
 	// Use this for initialization
 	void Start () {
 		anim = Face.gameObject.GetComponent<Animator>();
-		int FaceNum = gameObject.GetComponent<CoinController>().CoinFaceNo;
+		FaceNum = gameObject.GetComponent<CoinController>().CoinFaceNo;
 		ChangeFace(FaceNum);
 	}
 
@@ -26,7 +28,9 @@ public class CoinAni : MonoBehaviour {
 	}
 	
 	public void ChangeAni(int aniNum){
-		StartCoroutine(WaitIdleAni(aniNum));
+		if ( FaceNum > 0){
+			StartCoroutine(WaitIdleAni(aniNum));
+		}
 	}
 	
 	IEnumerator WaitIdleAni(int aniNum){
@@ -36,6 +40,8 @@ public class CoinAni : MonoBehaviour {
 		anim.SetInteger("aniNumber", aniNum);
 	}
 	public void CoinAniEnd(){
-		anim.SetInteger("aniNumber", 2);
+		if ( FaceNum > 0){
+			anim.SetInteger("aniNumber", 2);
+		}
 	}
 }

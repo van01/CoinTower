@@ -16,6 +16,8 @@ public class CoinController : MonoBehaviour {
 
 	private GameController tmpGameController;
 	private CoinConstructor tmpCoinConstructor;
+	private CameraController tmpCameraController;
+
 	private CoinAni tmpCoinAni;
 
 	private int windRandInt = 0;
@@ -29,6 +31,8 @@ public class CoinController : MonoBehaviour {
 	void Start () {
 		tmpGameController = GameObject.Find("GameController").GetComponent<GameController>();
 		tmpCoinConstructor = GameObject.Find("HitZone").GetComponent<CoinConstructor>();
+		tmpCameraController = GameObject.Find("Main Camera").GetComponent<CameraController>();
+
 		tmpSoundCoinEffect = GetComponent<SoundCoinEffect>();
 		tmpCoinAni = GetComponent<CoinAni>();
 	}
@@ -103,6 +107,8 @@ public class CoinController : MonoBehaviour {
 			tmpCoinConstructor.gameObject.SendMessage("RandWindOn");
 			tmpCoinAni.gameObject.SendMessage("CoinAniEnd");
 			state = CoinState.IDLE;
+
+			tmpCameraController.coinFixedPositionY = this.transform.position.y;
 			bFixed = true;
 		}
 
