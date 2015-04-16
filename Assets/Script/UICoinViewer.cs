@@ -38,6 +38,8 @@ public class UICoinViewer : MonoBehaviour {
 		GameObject Child = Instantiate(coin,this.transform.position,Quaternion.Euler(0,0,0)) as GameObject;
 		Rigidbody tmpRigidbody = Child.GetComponent<Rigidbody>();
 		Destroy(tmpRigidbody);
+		BoxCollider tmpBoxCollider = Child.GetComponent<BoxCollider>();
+		Destroy(tmpBoxCollider);
 
 		Component tmpCoinController = Child.GetComponent<CoinController>();
 		tmpCoinController.gameObject.SendMessage("StateCoercion","STANDBY");

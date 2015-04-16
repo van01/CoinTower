@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 27ac2c5834dcf624a8a112b81726b345
-timeCreated: 1429001430
+timeCreated: 1429207673
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -13,6 +13,9 @@ TextureImporter:
     21300012: Common_6
     21300014: Common_7
     21300016: Common_8
+    21300018: Common_9
+    21300020: Common_10
+    21300022: Common_11
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -147,6 +150,36 @@ TextureImporter:
         height: 7
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common_9
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 256
+        width: 83
+        height: 127
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common_10
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 321
+        width: 60
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common_11
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 257
+        width: 124
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
