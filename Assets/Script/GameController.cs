@@ -1,9 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-using GooglePlayGames;
-using UnityEngine.SocialPlatforms;
-
 
 public class GameController : MonoBehaviour {
 	
@@ -48,6 +45,8 @@ public class GameController : MonoBehaviour {
 	private BGController tmpBGController;
 	private SoundManager tmpSoundManager;
 	private HUDController tmpHudController;
+	private GPGSManager tmpGPGSManager;
+	private PlayerAccumulation tmpPlayerAccumulation;
 
 	private bool bLobbyMenuOn = false;
 	private bool bReadyOn = false;
@@ -78,12 +77,17 @@ public class GameController : MonoBehaviour {
 		tmpBGController = this.GetComponent<BGController>();
 		tmpSoundManager = GetComponent<SoundManager>();
 
+		tmpGPGSManager = GetComponent<GPGSManager>();
+		tmpPlayerAccumulation = GetComponent<PlayerAccumulation>();
+
+		/*
 		//구글 플레이 초기화
 		PlayGamesPlatform.Activate();
 		PlayGamesPlatform.DebugLogEnabled = true;
 		//구글 플레이 로그인
 		Social.localUser.Authenticate((bool success)=>{
 		});
+		*/
 
 		tex = new Texture2D(screenWidth, screenHeight, TextureFormat.RGB24, false);
 
@@ -182,11 +186,21 @@ public class GameController : MonoBehaviour {
 
 			if (bEndScoreSend == false){
 				//ShareImageCapture();
+				PlayerPrefs.SetInt("Coin Count", coinCounter);
+
 				tmpHudController.gameObject.SendMessage("LastScore", coinCounter);
 				bestScore = tmpHudController.GetComponent<HUDController>().nHighScore;
-				tmpHudController.gameObject.SendMessage("BestScoreSend", bestScore);
+				tmpGPGSManager.gameObject.SendMessage("PostScore", bestScore);
+
+				tmpGPGSManager.gameObject.SendMessage("ProgessiveAchievement", AchievementType.PlayCount);
+				tmpGPGSManager.gameObject.SendMessage("ProgessiveAchievement", AchievementType.TotalCoin);
+				tmpGPGSManager.gameObject.SendMessage("ProgessiveAchievement", AchievementType.BestScore);
+
+				tmpGPGSManager.gameObject.SendMessage("postAchievement");
 		
 				tmpCoinConstructor.gameObject.SendMessage("DeleteCoinViewer");
+
+				tmpPlayerAccumulation.gameObject.SendMessage("PlayerUpdate", coinCounter);
 
 				bEndScoreSend = true;
 			}
@@ -311,14 +325,6 @@ public class GameController : MonoBehaviour {
 		if (SC == "GAMEEND"){
 			state = GameState.GAMEEND;
 		}
-	}
-
-	public void ShowLeaderboard(){
-		Social.ShowLeaderboardUI();
-	}
-
-	public void ShowAchievements(){
-		Social.ShowAchievementsUI();
 	}
 
 	public void CoinRigidDel(){
