@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour {
 
 	private GameObject tmpObject;
 	private GameObject tmpGameController;
+
 	private BGController tmpBGScroll;
 
 	private float prevCoinPositionY = 0f;
@@ -45,6 +46,8 @@ public class CameraController : MonoBehaviour {
 			transform.position = new Vector3(0,changeCameraHeight,baseCameraDepth);
 
 			tmpBGScroll.gameObject.SendMessage("BGScroll");
+
+
 		}
 	}
 

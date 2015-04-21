@@ -55,6 +55,7 @@ public class GameController : MonoBehaviour {
 
 	public GameObject parentCoin;
 	public int coinRigidDelCount;
+	public int coinMeshDelDistance;
 
 	private int screenWidth = Screen.width;
 	private int screenHeight = Screen.height;
@@ -336,11 +337,16 @@ public class GameController : MonoBehaviour {
 
 				_coinRigidDel = parentCoin.transform.FindChild(rigidDel + "_Coin");
 
+				_coinRigidDel.gameObject.SendMessage("StateCoercion","FIXED");
+
 				Rigidbody tmpRigid = _coinRigidDel.GetComponent<Rigidbody>();
 				Destroy(tmpRigid);
+
+
 			}
+
 		}
-	
+
 	}
 
 	//void ShareImageCapture(){

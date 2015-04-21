@@ -14,7 +14,7 @@ public class GameEndCall : MonoBehaviour {
 	void OnTriggerEnter(Collider c)	{
 		if (c.transform.tag == "Coin"){
 			int d = (int)c.GetComponent<CoinController>().state;
-			print(d);
+
 			if (d == 0){
 				tmpGameController.gameObject.SendMessage("StateCoercion", "GAMEEND");
 			}
