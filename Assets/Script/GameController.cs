@@ -29,6 +29,10 @@ public class GameController : MonoBehaviour {
 	public GameState state;
 
 	public GameObject coinViewer;
+
+	public int maxCoinCount;
+	public GameObject cameraEffect;
+
 	private bool bCoinViewerSend = false;
 
 	private BoxCollider bCHitZone;
@@ -89,9 +93,6 @@ public class GameController : MonoBehaviour {
 		Social.localUser.Authenticate((bool success)=>{
 		});
 		*/
-
-		tex = new Texture2D(screenWidth, screenHeight, TextureFormat.RGB24, false);
-
 	}
 	
 	// Update is called once per frame
@@ -177,6 +178,7 @@ public class GameController : MonoBehaviour {
 			bPlayingOn = true;
 
 			Debug.Log(state);
+			ShareImageInit();
 		}
 
 		PlayingHudRedraw();
@@ -186,7 +188,6 @@ public class GameController : MonoBehaviour {
 		if (bEndGameOn == false){
 
 			if (bEndScoreSend == false){
-				//ShareImageCapture();
 				PlayerPrefs.SetInt("Coin Count", coinCounter);
 
 				tmpHudController.gameObject.SendMessage("LastScore", coinCounter);
@@ -308,6 +309,10 @@ public class GameController : MonoBehaviour {
 			coinViewer.gameObject.SendMessage("CoinViewerChange", 1);
 			bCoinViewerSend = true;
 		}
+
+		if (maxCoinCount <=  coinCounter){
+			state = GameState.GAMEEND;
+		}
 	}
 
 	public void StateCoercion(string SC){
@@ -349,9 +354,9 @@ public class GameController : MonoBehaviour {
 
 	}
 
-	//void ShareImageCapture(){
-	//	tex.ReadPixels(new Rect(0, 0, screenWidth, screenHeight), 0, 0, false); 
-	//}
+	void ShareImageInit(){
+		tex = new Texture2D(screenWidth, screenHeight, TextureFormat.RGB24, false);
+	}
 
 	void ShareImageDestroy(){
 		DestroyImmediate(tex);
@@ -360,7 +365,15 @@ public class GameController : MonoBehaviour {
 
 	public void NativeShareWithImage() {
 		tex.ReadPixels(new Rect(0, 0, screenWidth, screenHeight), 0, 0, false); 
+		cameraEffect.SetActive (true);
 		tex.Apply();
 		SPShareUtility.ShareMedia("Share Caption", "Share Message", tex);
+		StartCoroutine(DisableCameraEffect());
+	} 
+
+	IEnumerator DisableCameraEffect(){
+		yield return new WaitForSeconds(20.0f);
+
+		cameraEffect.SetActive (false);
 	}
 }
